@@ -8,8 +8,11 @@ public class WorkPlace {
     static Scanner employeeInput = new Scanner(System.in);
 
     public static void main(String[] args) {
+        Person person1 = new Person("Frank", "Thetank");
+
+        System.out.println(person1.getFullName());
+
         double payRate = dollarsPerHour();
-//        System.out.println("Your Pay rate is: $" + payRate);
         System.out.printf("Your Pay rate is: $%.2f/hr", payRate);
     }
 

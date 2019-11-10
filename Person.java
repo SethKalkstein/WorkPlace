@@ -45,8 +45,13 @@ public class Person {
     public int getBirthYear() {
         return birthYear;
     }
+
     public double getWeightPounds() {
         return weightPounds;
+    }
+
+    public String getFullName(){
+        return lastName + ", " + firstName;
     }
 
     public void setHeartRate(int rate){
