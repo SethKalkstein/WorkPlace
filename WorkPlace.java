@@ -9,13 +9,32 @@ public class WorkPlace {
     static Scanner employeeInput = new Scanner(System.in);
 
     public static void main(String[] args) {
-        double[][] sales = generateMonthlySales();
-//        double payRate = dollarsPerHour();
-        Person person1 = new Person("Frank", "Thetank");
 
-        displayMonthlySales(sales);
+        ToDoList myList = new ToDoList();
+
+        myList.addTask("Meow");
+        myList.addTask("Moo");
+        myList.addTask("Bark");
+        myList.addTask("Hiss");
+        myList.addTask("Purr");
+
+        myList.generateRandomTasks(2);
+
+        System.out.println("Index List Number 4: " + myList.getListIndex(4));
+
+        System.out.println(("Removed Index 3: " + myList.removeIndex(15)));
+
+        myList.printToDoList();
+
+
+
+//        double[][] sales = generateMonthlySales();
+//        double payRate = dollarsPerHour();
+//        Person person1 = new Person("Frank", "Thetank");
+
+/*        displayMonthlySales(sales);
         double salesPerDay = monthlySalesStats(sales);
-        System.out.printf("Average Sales per day for the month are: $%.2f", salesPerDay);
+        System.out.printf("Average Sales per day for the month are: $%.2f", salesPerDay);*/
 
 //        System.out.println(person1.getFullName());
 
