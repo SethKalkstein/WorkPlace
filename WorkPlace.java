@@ -18,7 +18,10 @@ public class WorkPlace {
         myList.addTask("Hiss");
         myList.addTask("Purr");
 
-        myList.generateRandomTasks(2);
+        String[] multipleTasks = {"Draw", "Whistle", "Work", "Drive", "Fly"};
+        myList.addMultiple(multipleTasks);
+
+        myList.generateRandomTasks(15);
 
         System.out.println("Index List Number 4: " + myList.getListIndex(4));
 
