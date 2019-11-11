@@ -67,6 +67,12 @@ public class ToDoList {
         }
     }
 
+    public void addMultiple(String[] multipleEntries){
+        for(String task : multipleEntries){
+            toDos.add(task);
+        }
+    }
+
     public String removeIndex(int index){
         try {
             return toDos.remove(index);
