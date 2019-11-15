@@ -29,6 +29,8 @@ public class WorkPlace {
 
         myList.printToDoList();
 
+        myList.toDoSillyStrings();
+
 
 
 //        double[][] sales = generateMonthlySales();

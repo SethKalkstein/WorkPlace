@@ -82,6 +82,62 @@ public class ToDoList {
         }
     }
 
+    public void toDoSillyStrings(){
+        try{
+            System.out.println("the third character in the first list item is: \"" + toDos.get(0).charAt(2) + "\".");
+
+            int stringComparison = toDos.get(3).compareToIgnoreCase(toDos.get(4));
+            System.out.println("Are the fourth item, \""+toDos.get(3)+ "\" and fifth item, \"" +toDos.get(4)+ "\" the same?\n" +
+                    (stringComparison == 0 ? "Yes they are!" : "No, their first different character is " +
+                            stringComparison + " characters apart in the alphabet") );
+            String compPhrase = "urr";
+            String startPhrase = "q";
+            System.out.println("\nDoes \"" + toDos.get(4) + "\" contain \""+compPhrase+"\"? " + toDos.get(4).contains(compPhrase));
+            System.out.println(toDos.get(7) + " starts with: " + startPhrase +"? " + toDos.get(7).startsWith(startPhrase));
+
+            System.out.println(toDos.get(7).indexOf("rk") + " is the index of \"rk\" in \"" + toDos.get(7) +".\"");
+            //the above can also be used with a start position, and there's a lastIndexOf() method
+            System.out.println(toDos.get(8).length() + " is the length of \""+toDos.get(8)+"\"");
+            System.out.println(toDos.get(8).replace("ve", "nk"));
+            System.out.println("split method " + Arrays.toString(toDos.get(9).split("")) );
+            System.out.println("to char array " + Arrays.toString(toDos.get(9).toCharArray()) );
+
+            String randString = "      sdg fsddfg dfg dfg dfgdfg      ";
+            System.out.println(randString + " a random string");
+            System.out.println(randString.trim() + " a random string with the trim method.");
+            String fakeHtml = "<p> Hello how are you doing</p>" +
+                    "<h1>Well, I'm doing good today.</h1>";
+            String tagh1 = "<h1>";
+            int headingStart = fakeHtml.indexOf(tagh1) + tagh1.length();
+            int headingEnd = fakeHtml.indexOf("</h1>");
+            System.out.println("\nHere is some fake html: " + fakeHtml);
+            System.out.println("Here is a header being parsed with the indexOf, " +
+                    " length, and most importantly substring method of the String Class: "+ fakeHtml.substring(headingStart, headingEnd));
+
+            StringBuilder everything = new StringBuilder("All of our tasks in string builder form:");
+            for (int i = 0; i < toDos.size(); i++) {
+                everything.append(" " + toDos.get(i) + (i == toDos.size() - 1 ? "." : "," ));
+            }
+            System.out.println(everything);
+
+            System.out.println(everything.delete(30, 40) + " deleted some stuff from that string builder.");
+            System.out.println("The capacity of that string builder is: " + everything.capacity());
+            everything.ensureCapacity(600); //capacity is now 600 chars
+            everything.trimToSize(); //trims it back to the number of chars being used
+            everything.insert(68, "Random word in here");
+            System.out.println("Here is the builder with a random sting put in the middle with the insert method: " + everything);
+
+            //StringBuilder also has indexOf(), substring(), charAt(), etc...
+
+            String everythingString = everything.toString();
+
+            System.out.println("Now the builder has been converted back into a string. Cool!" + everythingString);
+        }
+        catch (IndexOutOfBoundsException e){
+            System.out.println("Here's our problem" + e);
+        }
+    }
+
       public void printToDoList() {
           for (String task : toDos) {
               System.out.println(task);
