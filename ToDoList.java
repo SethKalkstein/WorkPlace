@@ -1,7 +1,6 @@
 package com.practice;
 
 import java.util.ArrayList;
-import java.util.Iterator; // The Iterator Library
 import java.util.Arrays;
 
 public class ToDoList {
@@ -132,6 +131,23 @@ public class ToDoList {
             String everythingString = everything.toString();
 
             System.out.println("Now the builder has been converted back into a string. Cool!" + everythingString);
+
+            String fullSentence = "Hello my name is Joe and I work in a button factory.";
+            String[] splitSentence = fullSentence.split(" ");
+            char[] sentArray = fullSentence.toCharArray();
+            ArrayList<Character[]> splitCharSent = new ArrayList<>();
+            for(int i = 0; i < splitSentence.length; i++){
+                char[] tempCharsPrim = splitSentence[i].toCharArray();
+                Character[] tempCharObj = new Character[tempCharsPrim.length];
+                for(int j = 0; j < tempCharsPrim.length; j++) {
+                    tempCharObj[j] = Character.valueOf(tempCharsPrim[j]);
+                }
+                splitCharSent.add(tempCharObj);
+            }
+
+            System.out.println(Arrays.deepToString(splitCharSent.toArray()));
+            System.out.println(Arrays.toString(sampleTasks));
+
         }
         catch (IndexOutOfBoundsException e){
             System.out.println("Here's our problem" + e);
