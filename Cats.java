@@ -3,12 +3,12 @@ package com.practice;
 public class Cats extends Pets {
     public String favToy = "Mousey Mouse";
 
-    public void playWith(){
+    public void playWithToy(){
         System.out.println("Yeah " + this.favToy);
     }
 
     public void walkAround(){
-        System.out.println(this.getName() + "pounces around");
+        System.out.println(this.getName() + " pounces around");
     }
 
     public String getFavToy(){
