@@ -10,7 +10,49 @@ public class WorkPlace {
 
     public static void main(String[] args) {
 
-        ToDoList myList = new ToDoList();
+        Pets genericPet = new Pets();
+        System.out.println(genericPet.getName());
+        System.out.println(genericPet.favFood);
+        genericPet.walkAround();
+
+        Cats slayer = new Cats("Slayer The Cat", "crumpled receipt", "tuna");
+
+        slayer.playWithToy();
+
+        slayer.eatStuff();
+
+        System.out.println(slayer.getName());
+
+        slayer.walkAround();
+
+        //All Cats are Pets (be Animals in real life) but not all Pets are Cats, so Cats blah = new Pet()
+        //wouldn't work
+
+        Pets tuxedoCat = new Cats("Nougat", "Ostrich Mouse", "greenies");
+
+        System.out.println(tuxedoCat.getName());
+        System.out.println(tuxedoCat.favFood);
+
+        acceptPet(tuxedoCat);
+
+        Vehicle car = new Vehicle(4, 140.5);
+
+        System.out.println("the vehicle's max speed is " + car.getSpeed());
+
+        System.out.println("the vehicle's number of wheels is " + car.getWheel());
+
+        Vehicle genericV = new Vehicle();
+        System.out.println("the vehicle's max speed is " + genericV.getSpeed());
+
+        System.out.println("the vehicle's number of wheels is " + genericV.getWheel());
+
+        System.out.println("the shape of the wheels are " + genericV.WHEELSHAPE);
+
+
+
+
+
+        /*ToDoList myList = new ToDoList();
 
         myList.addTask("Meow");
         myList.addTask("Moo");
@@ -30,7 +72,7 @@ public class WorkPlace {
         myList.printToDoList();
 
         myList.toDoSillyStrings();
-
+*/
 
 
 //        double[][] sales = generateMonthlySales();
@@ -44,6 +86,33 @@ public class WorkPlace {
 //        System.out.println(person1.getFullName());
 
 //        System.out.printf("Your Pay rate is: $%.2f/hr", payRate);
+    }
+
+    public static void acceptPet(Pets randomPets){
+        System.out.println(randomPets.getName());
+        //access to method that is overRidden due to Polymorphism Cats as Animals type
+        randomPets.walkAround();
+        //Cats unique methods cannot be called randomPets.playWithToy(); will not work
+        //but casting it to the Cats subclass will provide access to those methods
+        Cats tempCat = (Cats) randomPets;
+        tempCat.playWithToy();
+        //or cast directly on the object as follows
+        System.out.println(((Cats)randomPets).getFavToy());
+        //(Cats)randomPets is the snippet of direct casting (but wrap the whole thing in
+        //parenthesis to insure that the method dot is applied to the whole cast object instead
+        //of just the parent before the interpreter calls the method
+        if(randomPets instanceof Pets ){
+            System.out.println(randomPets.getName() + " is an instance of the Pets Class");
+        }
+        if(randomPets instanceof Cats ){
+            System.out.println(randomPets.getName() + " is an instance of the Cats Class");
+        }
+        if(tempCat instanceof Pets ){
+            System.out.println(tempCat.getName() + " is an instance of the Pets Class");
+        }
+        if(tempCat instanceof Cats ){
+            System.out.println(tempCat.getName() + " is an instance of the Cats Class");
+        }
     }
 
     public static double dollarsPerHour(){
