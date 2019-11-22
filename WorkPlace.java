@@ -48,7 +48,9 @@ public class WorkPlace {
 
         System.out.println("the shape of the wheels are " + genericV.WHEELSHAPE);
 
-
+        car.setCarStrength(100);
+cd sr   
+        System.out.println("Car strength is " + car.getCarStrength() );
 
 
 

@@ -1,10 +1,18 @@
 package com.practice;
 
-public class Vehicle implements Drivable {
+public class Vehicle extends Crashable implements Drivable {
 
     private int numOfWheels = 2;
     private double theSpeed = 60.5;
+    private int carStrength = 0;
 
+    public void setCarStrength(int carStrength){
+        this.carStrength = carStrength;
+    }
+
+    public int getCarStrength(){
+        return this.carStrength;
+    }
 
     public int getWheel(){
         return this.numOfWheels;
