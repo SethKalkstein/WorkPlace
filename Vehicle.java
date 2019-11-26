@@ -1,6 +1,6 @@
 package com.practice;
 
-public class Vehicle extends Crashable implements Drivable {
+public class Vehicle extends Crashable implements Drivable, Cloneable {
 
     private int numOfWheels = 2;
     private double theSpeed = 60.5;
@@ -37,4 +37,16 @@ public class Vehicle extends Crashable implements Drivable {
         this.theSpeed = theSpeed;
     }
 
+    public Object clone(){
+        Vehicle car;
+
+        try{
+            car = (Vehicle) super.clone();
+        }
+
+        catch (CloneNotSupportedException e){
+            return null;
+        }
+        return car;
+    }
 }
