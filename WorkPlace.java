@@ -1,5 +1,6 @@
 package com.practice;
 
+import java.text.RuleBasedCollator;
 import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -10,7 +11,7 @@ public class WorkPlace {
 
     public static void main(String[] args) {
 
-        Pets genericPet = new Pets();
+        /*Pets genericPet = new Pets();
         System.out.println(genericPet.getName());
         System.out.println(genericPet.favFood);
         genericPet.walkAround();
@@ -23,12 +24,12 @@ public class WorkPlace {
 
         System.out.println(slayer.getName());
 
-        slayer.walkAround();
+        slayer.walkAround();*/
 
         //All Cats are Pets (be Animals in real life) but not all Pets are Cats, so Cats blah = new Pet()
         //wouldn't work
 
-        Pets tuxedoCat = new Cats("Nougat", "Ostrich Mouse", "greenies");
+/*        Pets tuxedoCat = new Cats("Nougat", "Ostrich Mouse", "greenies");
 
         System.out.println(tuxedoCat.getName());
         System.out.println(tuxedoCat.favFood);
@@ -49,8 +50,11 @@ public class WorkPlace {
         System.out.println("the shape of the wheels are " + genericV.WHEELSHAPE);
 
         car.setCarStrength(100);
-cd sr   
+
         System.out.println("Car strength is " + car.getCarStrength() );
+
+        //have to cast Vehicle because clone returns the object class
+        Vehicle car2 = (Vehicle) car.clone();*/
 
 
 
@@ -88,6 +92,17 @@ cd sr
 //        System.out.println(person1.getFullName());
 
 //        System.out.printf("Your Pay rate is: $%.2f/hr", payRate);
+
+        Thread getTime = new TimeCounter20();
+        getTime.start();
+        Runnable myMail = new GetMail(10);
+        Runnable myMail2 = new GetMail(15);
+
+        new Thread(myMail).start();
+        new Thread(myMail2).start();
+
+        
+
     }
 
     public static void acceptPet(Pets randomPets){
