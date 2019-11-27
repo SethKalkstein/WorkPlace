@@ -4,6 +4,9 @@ import java.text.RuleBasedCollator;
 import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+//import java.util.concurrent.TimeUnit.*;
 
 public class WorkPlace {
 
@@ -93,16 +96,49 @@ public class WorkPlace {
 
 //        System.out.printf("Your Pay rate is: $%.2f/hr", payRate);
 
-        Thread getTime = new TimeCounter20();
+/*        Thread getTime = new TimeCounter20();
         getTime.start();
         Runnable myMail = new GetMail(10);
         Runnable myMail2 = new GetMail(15);
 
         new Thread(myMail).start();
         new Thread(myMail2).start();
+*/
 
-        
+        addThreadToPool();
 
+    }
+
+    public static void addThreadToPool(){
+        ScheduledThreadPoolExecutor eventPool = new ScheduledThreadPoolExecutor(10);
+
+        eventPool.scheduleAtFixedRate(new CheckSystemTime(), 0, 2, TimeUnit.SECONDS);
+        eventPool.scheduleAtFixedRate(new PerformSystemCheck("Mail"), 5, 5, TimeUnit.SECONDS);
+        eventPool.scheduleAtFixedRate(new PerformSystemCheck("Calander"), 10, 10, TimeUnit.SECONDS);
+
+        System.out.println("NUmber of Threads: " + Thread.activeCount());
+
+        Thread[] listOfThreads = new Thread[Thread.activeCount()];
+
+        Thread.enumerate(listOfThreads);
+
+        for(Thread eachThread : listOfThreads){
+            System.out.println(eachThread.toString() );
+        }
+
+        for(Thread eachThread : listOfThreads){
+            System.out.println(eachThread.getPriority() );
+        }
+
+//        listOfThreads[2].setPriority(1); this would set it to lowest priority lower number is lower priority
+
+        try{ //stops the thread
+            Thread.sleep(10000);
+        }
+        catch (InterruptedException e) {
+        }
+
+        eventPool.shutdown();
     }
 
     public static void acceptPet(Pets randomPets){
